@@ -2,11 +2,11 @@ import React from "react"
 import "./App.css"
 import Header from "./components/Header"
 
-function App() {
+function App(props) {
   return (
     <div>
       <Header />
-      <h1>App JS</h1>
+      {props.children}
     </div>
   )
 }
