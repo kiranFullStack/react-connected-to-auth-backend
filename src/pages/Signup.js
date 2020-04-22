@@ -2,8 +2,10 @@ import React from "react"
 
 export default function Signup() {
   return (
-    <div>
-      <h1>Signup</h1>
-    </div>
+    <>
+      <h1>Signup with</h1>
+      <button>Facebook</button>
+      <button>Google</button>
+    </>
   )
 }

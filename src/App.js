@@ -5,10 +5,10 @@ import { ADD, SUBTRACT } from "./redux/counter"
 import { useSelector, useDispatch } from "react-redux"
 
 function App(props) {
-  const counter = useSelector((state) => state.counterReducer.counter)
+  const counter = useSelector((state) => state.counter.counter)
   const dispatch = useDispatch()
   return (
-    <div>
+    <>
       <Header />
       <h1>{counter}</h1>
       <button
@@ -26,7 +26,7 @@ function App(props) {
         -
       </button>
       {props.children}
-    </div>
+    </>
   )
 }
 
