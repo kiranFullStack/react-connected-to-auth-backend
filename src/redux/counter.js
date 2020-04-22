@@ -10,7 +10,7 @@ const INITIAL_STATE = {
 // ─── REDUCER  ────────────────────────────────────────────────────────────────────
 //
 
-const counterReducer = (state = INITIAL_STATE, action) => {
+const counter = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "ADD":
       return {
@@ -46,4 +46,4 @@ export const SUBTRACT = () => {
   }
 }
 
-export default counterReducer
+export default counter

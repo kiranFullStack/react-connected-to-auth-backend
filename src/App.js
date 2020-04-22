@@ -1,7 +1,7 @@
 import React from "react"
 import "./styles/main.scss"
 import Header from "./components/Header"
-import { ADD, SUBTRACT } from "./redux/counterReducer"
+import { ADD, SUBTRACT } from "./redux/counter"
 import { useSelector, useDispatch } from "react-redux"
 
 function App(props) {
