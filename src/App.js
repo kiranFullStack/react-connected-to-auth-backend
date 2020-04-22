@@ -1,5 +1,5 @@
 import React from "react"
-import "./styles/App.scss"
+import "./styles/main.scss"
 import Header from "./components/Header"
 import { ADD, SUBTRACT } from "./redux/counterReducer"
 import { useSelector, useDispatch } from "react-redux"
