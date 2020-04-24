@@ -2,19 +2,19 @@ import React from "react"
 import GoogleLogin from "react-google-login"
 import FacebookLogin from "react-facebook-login"
 import { useSelector, useDispatch } from "react-redux"
-import { OAUTHWITHGOOGLE } from "../redux/auth"
+import { OAUTHWITHGOOGLE, OAUTHWITHFACEBOOK } from "../redux/auth"
 
 export default function Signup() {
   const dispatch = useDispatch()
 
   const responseFacebook = (response) => {
     console.log(response, "Response Facebook")
+    dispatch(OAUTHWITHFACEBOOK(response.accessToken))
   }
 
   const responseGoogle = (response) => {
     console.log(response, "Response Google")
-
-    dispatch(OAUTHWITHGOOGLE(response))
+    dispatch(OAUTHWITHGOOGLE(response.accessToken))
   }
 
   return (

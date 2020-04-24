@@ -1,3 +1,5 @@
+import axios from "axios"
+
 //
 // ─── INITIAL STATE ──────────────────────────────────────────────────────────────
 //
@@ -51,6 +53,26 @@ export const SUBTRACT = () => {
 export const OAUTHWITHGOOGLE = (data) => {
   return async (dispatch) => {
     console.log(data, "The data that we received in actions")
+    const response = await axios.post(
+      "http://localhost:5000/users/oauth/google",
+      {
+        access_token: data,
+      }
+    )
+    console.log(response)
+  }
+}
+
+export const OAUTHWITHFACEBOOK = (data) => {
+  return async (dispatch) => {
+    console.log(data, "The data that we received in actions")
+    const response = await axios.post(
+      "http://localhost:5000/users/oauth/facebook",
+      {
+        access_token: data,
+      }
+    )
+    console.log(response, "response from facebook server")
   }
 }
 
