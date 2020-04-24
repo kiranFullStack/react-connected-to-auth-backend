@@ -48,4 +48,10 @@ export const SUBTRACT = () => {
   }
 }
 
+export const OAUTHWITHGOOGLE = (data) => {
+  return async (dispatch) => {
+    console.log(data, "The data that we received in actions")
+  }
+}
+
 export default counterReducer
