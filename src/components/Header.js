@@ -1,9 +1,11 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { SIGNOUT } from "../redux/auth"
 
 export default function Header() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
+  const dispatch = useDispatch()
 
   return (
     <div>
@@ -23,7 +25,14 @@ export default function Header() {
             </>
           ) : (
             <li>
-              <Link to="/signup">Log Out</Link>
+              <Link
+                to="/signup"
+                onClick={() => {
+                  dispatch(SIGNOUT())
+                }}
+              >
+                Log Out
+              </Link>
             </li>
           )}
         </ul>

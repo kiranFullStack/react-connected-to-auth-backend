@@ -21,7 +21,13 @@ const auth = (state = INITIAL_STATE, action) => {
         ...state,
         isAuthenticated: true,
         errorMessage: "",
-        token: JSON.parse(action.payload).access_token,
+        token: action.payload,
+      }
+    case "SIGNOUT":
+      return {
+        ...state,
+        isAuthenticated: false,
+        token: {},
       }
 
     default:
@@ -80,4 +86,10 @@ export const OAUTHWITHFACEBOOK = (data) => {
   }
 }
 
+export const SIGNOUT = () => {
+  return {
+    type: "SIGNOUT",
+    //   payload: true
+  }
+}
 export default auth
