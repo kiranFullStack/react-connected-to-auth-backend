@@ -15,12 +15,20 @@ export default function Header() {
           <li>
             <Link to="/dashboard">Dashboard</Link>
           </li>
-          <li>
-            <Link to="/signin">Sign In</Link>
-          </li>
-          <li>
-            <Link to="/signup">Sign Up</Link>
-          </li>
+          {!isAuthenticated ? (
+            <>
+              <li>
+                <Link to="/signin">Sign In</Link>
+              </li>
+              <li>
+                <Link to="/signup">Sign Up</Link>
+              </li>
+            </>
+          ) : (
+            <li>
+              <Link to="/signup">Sign Out</Link>
+            </li>
+          )}
         </ul>
       </nav>
       <h1>{isAuthenticated ? "logged in" : "logged out"}</h1>
