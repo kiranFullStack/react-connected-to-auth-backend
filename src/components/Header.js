@@ -1,7 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { useSelector, useDispatch } from "react-redux"
 
 export default function Header() {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
+
   return (
     <div>
       <nav>
@@ -20,6 +23,7 @@ export default function Header() {
           </li>
         </ul>
       </nav>
+      <h1>{isAuthenticated ? "logged in" : "logged out"}</h1>
     </div>
   )
 }
