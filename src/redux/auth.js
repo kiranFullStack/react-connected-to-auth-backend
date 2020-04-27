@@ -16,16 +16,8 @@ const INITIAL_STATE = {
 
 const auth = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    // case "ADD":
-    //   return {
-    //     ...state,
-    //     counter: state.counter + 1,
-    //   }
-    // case "SUBTRACT":
-    //   return {
-    //     ...state,
-    //     counter: state.counter - 1,
-    //   }
+    case "AUTH_SIGN_UP":
+      return { ...state, isAuthenticated: true, errorMessage: "" }
 
     default:
       return state
@@ -41,7 +33,17 @@ export const OAUTHWITHGOOGLE = (data) => {
         access_token: data,
       }
     )
-    console.log(response, "response from google server")
+    dispatch({
+      type: "AUTH_SIGN_UP",
+      payload: response.config.data,
+    })
+    //LOCAL STORAGE NEEDS REFACTORING
+
+    localStorage.setItem("JWT_TOKEN", response.config.data.access_token)
+    console.log(
+      JSON.parse(response.config.data).access_token,
+      "response from google server"
+    )
   }
 }
 
@@ -54,7 +56,17 @@ export const OAUTHWITHFACEBOOK = (data) => {
         access_token: data,
       }
     )
-    console.log(response, "response from facebook server")
+    dispatch({
+      type: "AUTH_SIGN_UP",
+      payload: response.config.data,
+    })
+    //LOCAL STORAGE NEEDS REFACTORING
+    localStorage.setItem("JWT_TOKEN", response.config.data.access_token)
+
+    console.log(
+      JSON.parse(response.config.data).access_token,
+      "response from facebook server access token"
+    )
   }
 }
 
