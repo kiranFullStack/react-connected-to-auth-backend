@@ -17,7 +17,12 @@ const INITIAL_STATE = {
 const auth = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "AUTH_SIGN_UP":
-      return { ...state, isAuthenticated: true, errorMessage: "" }
+      return {
+        ...state,
+        isAuthenticated: true,
+        errorMessage: "",
+        token: JSON.parse(action.payload).access_token,
+      }
 
     default:
       return state
@@ -33,9 +38,14 @@ export const OAUTHWITHGOOGLE = (data) => {
         access_token: data,
       }
     )
+    let payloadvar = JSON.parse(response.config.data)
+    console.log(
+      JSON.parse(response.config.data).access_token,
+      "<<<<<<<--------;;;"
+    )
     dispatch({
       type: "AUTH_SIGN_UP",
-      payload: response.config.data,
+      payload: payloadvar,
     })
     //LOCAL STORAGE NEEDS REFACTORING
 

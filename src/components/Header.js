@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 
 export default function Header() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
@@ -18,15 +18,12 @@ export default function Header() {
           {!isAuthenticated ? (
             <>
               <li>
-                <Link to="/signin">Sign In</Link>
-              </li>
-              <li>
-                <Link to="/signup">Sign Up</Link>
+                <Link to="/signup">Log In</Link>
               </li>
             </>
           ) : (
             <li>
-              <Link to="/signup">Sign Out</Link>
+              <Link to="/signup">Log Out</Link>
             </li>
           )}
         </ul>
