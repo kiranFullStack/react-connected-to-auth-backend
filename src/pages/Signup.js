@@ -1,7 +1,7 @@
 import React from "react"
 import GoogleLogin from "react-google-login"
 import FacebookLogin from "react-facebook-login"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { OAUTHWITHGOOGLE, OAUTHWITHFACEBOOK } from "../redux/auth"
 
 export default function Signup() {

@@ -14,39 +14,21 @@ const INITIAL_STATE = {
 // ─── REDUCER  ────────────────────────────────────────────────────────────────────
 //
 
-const counterReducer = (state = INITIAL_STATE, action) => {
+const auth = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "ADD":
-      return {
-        ...state,
-        counter: state.counter + 1,
-      }
-    case "SUBTRACT":
-      return {
-        ...state,
-        counter: state.counter - 1,
-      }
+    // case "ADD":
+    //   return {
+    //     ...state,
+    //     counter: state.counter + 1,
+    //   }
+    // case "SUBTRACT":
+    //   return {
+    //     ...state,
+    //     counter: state.counter - 1,
+    //   }
 
     default:
       return state
-  }
-}
-
-//
-// ─── ACTION  ────────────────────────────────────────────────────────────────────
-//
-
-export const ADD = () => {
-  return {
-    type: "ADD",
-    //   payload: true
-  }
-}
-
-export const SUBTRACT = () => {
-  return {
-    type: "SUBTRACT",
-    //   payload: true
   }
 }
 
@@ -59,7 +41,7 @@ export const OAUTHWITHGOOGLE = (data) => {
         access_token: data,
       }
     )
-    console.log(response)
+    console.log(response, "response from google server")
   }
 }
 
@@ -76,4 +58,4 @@ export const OAUTHWITHFACEBOOK = (data) => {
   }
 }
 
-export default counterReducer
+export default auth
